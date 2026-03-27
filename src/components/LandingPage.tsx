@@ -65,10 +65,28 @@ function LandingPage() {
       document.documentElement.classList.add('dark');
       document.documentElement.style.backgroundColor = '#000000';
       document.body.style.backgroundColor = '#000000';
+      const darkFavicon = document.createElement('link');
+      darkFavicon.rel = 'icon';
+      darkFavicon.type = 'image/svg+xml';
+      darkFavicon.href = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='none' stroke='%23C9A961' stroke-width='3'/><circle cx='50' cy='50' r='45' fill='%23000000'/><text x='50' y='60' font-family='serif' font-size='45' font-weight='bold' fill='%23C9A961' text-anchor='middle' font-style='italic'>N</text></svg>`;
+      const oldFavicon = document.querySelector('link[rel="icon"]');
+      if (oldFavicon) {
+        oldFavicon.parentNode?.removeChild(oldFavicon);
+      }
+      document.head.appendChild(darkFavicon);
     } else {
       document.documentElement.classList.remove('dark');
       document.documentElement.style.backgroundColor = '#ffffff';
       document.body.style.backgroundColor = '#ffffff';
+      const lightFavicon = document.createElement('link');
+      lightFavicon.rel = 'icon';
+      lightFavicon.type = 'image/svg+xml';
+      lightFavicon.href = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='none' stroke='%23C9A961' stroke-width='3'/><circle cx='50' cy='50' r='45' fill='%23ffffff'/><text x='50' y='60' font-family='serif' font-size='45' font-weight='bold' fill='%23C9A961' text-anchor='middle' font-style='italic'>N</text></svg>`;
+      const oldFavicon = document.querySelector('link[rel="icon"]');
+      if (oldFavicon) {
+        oldFavicon.parentNode?.removeChild(oldFavicon);
+      }
+      document.head.appendChild(lightFavicon);
     }
   }, [isDarkMode]);
 
