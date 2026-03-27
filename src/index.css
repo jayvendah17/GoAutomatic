@@ -12,6 +12,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  img {
+    will-change: filter;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
 }
 
 @layer utilities {
@@ -33,6 +40,32 @@
 
 body {
   top: 0px !important;
+  position: static !important;
+}
+
+.skiptranslate {
+  display: none !important;
+}
+
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
+.goog-te-spinner-pos {
+  display: none !important;
+}
+
+#goog-gt-tt {
+  display: none !important;
+}
+
+.goog-tooltip {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
 }
 
 .goog-te-gadget {
@@ -148,13 +181,18 @@ body {
   }
 
   .dark .hover\:bg-gray-50:hover {
-    @apply bg-gray-900;
+    background-color: #000000 !important;
+  }
+
+  .dark .hover\:bg-gray-900:hover {
+    background-color: #000000 !important;
   }
 
   .dark input,
   .dark textarea,
   .dark select {
     @apply bg-black text-white;
+    background-color: #000000 !important;
     border-color: #C9A961 !important;
   }
 
@@ -166,15 +204,18 @@ body {
 
   .dark .goog-te-combo {
     @apply bg-black text-white;
+    background-color: #000000 !important;
     border-color: #C9A961 !important;
   }
 
   img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    will-change: filter;
+    transition: filter 0.1s ease-in-out;
   }
 
   .dark img {
-    filter: brightness(1.1) contrast(1.05);
+    filter: brightness(1.15) contrast(1.1);
   }
 }
